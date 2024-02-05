@@ -252,7 +252,7 @@ class chassis:
         if rollingtype in self.motorcontrollers:
           rollingcontrol = self.motorcontrollers[rollingtype]
         else:
-          raise ValueError("Unknown motor control type")
+          raise ValueError(f"Unknown motor control type for motor '{name}', type '{rollingtype}' not supported")
 
       # Fill in any steering angle motor control and associated parameters
       steering = wheel['steering']
