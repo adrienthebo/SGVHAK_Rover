@@ -187,7 +187,7 @@ class main_menu:
     """
     chassis.ensureready()
     wheelInfo = dict()
-    for name, wheel in chassis.wheels.iteritems():
+    for name, wheel in chassis.wheels.items():
       wheelInfo[name] = dict()
       wheelInfo[name]['velocity'] = wheel.velocity
       wheelInfo[name]['angle'] = wheel.angle
@@ -204,7 +204,7 @@ class main_menu:
     if request.method == 'GET':
       # Find all the wheels that we can steer
       steered_wheels = list()
-      for name, wheel in chassis.wheels.iteritems():
+      for name, wheel in chassis.wheels.items():
         if wheel.steeringcontrol:
           steered_wheels.append(name)
       steered_wheels.sort()
@@ -268,7 +268,7 @@ class main_menu:
     chassis.ensureready()
     voltages = dict()
 
-    for name,wheel in chassis.wheels.iteritems():
+    for name,wheel in chassis.wheels.items():
       voltages[name] = wheel.motor_voltage()
 
     return render_template("input_voltage.html",

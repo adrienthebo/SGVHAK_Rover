@@ -189,28 +189,28 @@ class chassis:
       asw = adafruit_servo_wrapper.adafruit_servo_wrapper()
       asw.connect()
       self.motorcontrollers['adafruit_servo'] = asw
-    except StandardError as se:
+    except Exception as se:
       logging.getLogger(__name__).error("Unable to initialize Adafruit Servo HAT library: %s",str(se))
 
     try:
       lws = lewansoul_wrapper.lewansoul_wrapper()
       lws.connect()
       self.motorcontrollers['lewansoul'] = lws
-    except StandardError as se:
+    except Exception as se:
       logging.getLogger(__name__).error("Unable to initialize LewanSoul Servo Library: %s",str(se))
 
     try:
       dms = dynamixel_wrapper.dynamixel_wrapper()
       dms.connect()
       self.motorcontrollers['dynamixel'] = dms
-    except StandardError as se:
+    except Exception as se:
       logging.getLogger(__name__).error("Unable to initialize Dynamixel Servo Library: %s",str(se))
 
     try:
       dmfe = dmfe_wrapper.dmfe_wrapper()
       dmfe.connect()
       self.motorcontrollers['dmfe'] = dmfe
-    except StandardError as se:
+    except Exception as se:
       logging.getLogger(__name__).error("Unable to initialize DMFE serial bus device library: %s",str(se))
 
   def ensureready(self):

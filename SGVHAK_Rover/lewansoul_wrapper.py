@@ -227,7 +227,7 @@ class lewansoul_wrapper:
     if inverted:
       power = power * -1
 
-    self.send(sid, 29, bytearray(pack('hh',1,power)))
+    self.send(sid, 29, bytearray(pack('hh',1,int(power))))
 
   def set_max_current(self, id, current):
     """ LewanSoul does not support overpower protection. """
@@ -257,7 +257,7 @@ class lewansoul_wrapper:
     self.check_sp()
 
     self.send(sid, 29, (0,0,0,0)) # Servo mode
-    self.send(sid, 1, bytearray(pack('hh', center, 2000)))
+    self.send(sid, 1, bytearray(pack('hh', int(center), 2000)))
 
   def maxangle(self, id):
     sid, center, inverted = self.check_id(id)
@@ -277,7 +277,7 @@ class lewansoul_wrapper:
       delta = delta * -1
 
     self.send(sid, 29, (0,0,0,0)) # Servo mode
-    self.send(sid, 1, bytearray(pack('hh', center+delta, 200)))
+    self.send(sid, 1, bytearray(pack('hh', int(center+delta), 200)))
 
   def steer_setzero(self, id):
     sid, center, inverted = self.check_id(id)
